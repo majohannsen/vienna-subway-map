@@ -76,12 +76,12 @@ rotation = 3.14159
 [node name="Path2D U3" type="Path2D" parent="Control2"]
 curve = SubResource("Curve2D_x6a4t")
 
-[node name="PathFollow2D" parent="Control2/Path2D U3" instance=ExtResource("2_ewujf")]
+[node name="PathFollower" parent="Control2/Path2D U3" instance=ExtResource("2_ewujf")]
 
 [node name="Path2D U4" type="Path2D" parent="Control2"]
 curve = SubResource("Curve2D_ajd41")
 
-[node name="PathFollow2D" parent="Control2/Path2D U4" instance=ExtResource("2_ewujf")]
+[node name="PathFollower" parent="Control2/Path2D U4" instance=ExtResource("2_ewujf")]
 position = Vector2(606, 1339)
 rotation = -0.000783699
 
