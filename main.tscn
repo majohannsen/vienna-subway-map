@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp1svnycho8to"]
 
 [ext_resource type="Texture2D" uid="uid://cjy4yvntroibu" path="res://assets/U-Bahn Netz.svg" id="1_ers12"]
-[ext_resource type="Script" path="res://Path2D U3.gd" id="2_mjemr"]
 [ext_resource type="Texture2D" uid="uid://dwqams5ecbxio" path="res://assets/train.svg" id="2_w2aly"]
+[ext_resource type="Script" path="res://PathFollow2D.gd" id="3_3ua2x"]
 
 [sub_resource type="Curve2D" id="Curve2D_x6a4t"]
 _data = {
@@ -19,6 +19,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_right = 3840.0
 offset_bottom = 2160.0
 metadata/_edit_lock_ = true
@@ -37,11 +38,11 @@ offset_bottom = 40.0
 
 [node name="Path2D U3" type="Path2D" parent="Control2"]
 curve = SubResource("Curve2D_x6a4t")
-script = ExtResource("2_mjemr")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Control2/Path2D U3"]
 position = Vector2(882, 737)
 rotation = 0.783885
+script = ExtResource("3_3ua2x")
 
 [node name="Train" type="Sprite2D" parent="Control2/Path2D U3/PathFollow2D"]
 scale = Vector2(2.14347, 2.14347)

@@ -1,4 +1,4 @@
-extends Path2D
+extends PathFollow2D
 
 var t := 0.0
 var direction = false
@@ -20,7 +20,4 @@ func _process(delta):
 		if (t > 1):
 			t = 1
 			direction = !direction
-	
-	
-	
-	$PathFollow2D.progress_ratio = t
+	self.progress_ratio = t
