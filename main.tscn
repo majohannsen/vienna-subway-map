@@ -1,7 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp1svnycho8to"]
+[gd_scene load_steps=8 format=3 uid="uid://cp1svnycho8to"]
 
 [ext_resource type="Texture2D" uid="uid://cjy4yvntroibu" path="res://assets/U-Bahn Netz.svg" id="1_ers12"]
 [ext_resource type="PackedScene" uid="uid://cnl81e3tyh0fq" path="res://path_follower.tscn" id="2_ewujf"]
+
+[sub_resource type="Curve2D" id="Curve2D_54pq6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 2690, 97, 0, 0, 0, 0, 1758, 1030, 0, 0, 0, 0, 1758, 1852, 0, 0, 0, 0, 1794, 1888)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_2g752"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1758, 1300, 0, 0, 0, 0, 1630, 1300, 0, 0, 0, 0, 1498, 1167, 0, 0, 0, 0, 1498, 975, 0, 0, 0, 0, 1769, 703, 0, 0, 0, 0, 2183, 702, 0, 0, 0, 0, 2602, 1123, 0, 0, 0, 0, 2903, 822, 0, 0, 0, 0, 3023, 822, 0, 0, 0, 0, 3176, 669, 0, 0, 0, 0, 3312, 669, 0, 0, 0, 0, 3312, 823)
+}
+point_count = 12
 
 [sub_resource type="Curve2D" id="Curve2D_x6a4t"]
 _data = {
@@ -12,6 +24,12 @@ point_count = 5
 [sub_resource type="Curve2D" id="Curve2D_ajd41"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 606, 1339, 0, 0, 0, 0, 1882, 1338, 0, 0, 0, 0, 1996, 1225, 0, 0, 0, 0, 1997, 913, 0, 0, 0, 0, 1530, 445, 0, 0, 0, 0, 1530, 229)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_nv2w0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 798, 2127, 0, 0, 0, 0, 1214, 1709, 0, 0, 0, 0, 1213, 663, 0, 0, 0, 0, 1491, 385, 0, 0, 0, 0, 1700, 385, 0, 0, 0, 0, 1986, 98)
 }
 point_count = 6
 
@@ -41,6 +59,20 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="Path2D U1" type="Path2D" parent="Control2"]
+curve = SubResource("Curve2D_54pq6")
+
+[node name="PathFollower" parent="Control2/Path2D U1" instance=ExtResource("2_ewujf")]
+position = Vector2(2690, 97)
+rotation = 2.35566
+
+[node name="Path2D U2" type="Path2D" parent="Control2"]
+curve = SubResource("Curve2D_2g752")
+
+[node name="PathFollower" parent="Control2/Path2D U2" instance=ExtResource("2_ewujf")]
+position = Vector2(1758, 1300)
+rotation = 3.14159
+
 [node name="Path2D U3" type="Path2D" parent="Control2"]
 curve = SubResource("Curve2D_x6a4t")
 
@@ -52,3 +84,10 @@ curve = SubResource("Curve2D_ajd41")
 [node name="PathFollow2D" parent="Control2/Path2D U4" instance=ExtResource("2_ewujf")]
 position = Vector2(606, 1339)
 rotation = -0.000783699
+
+[node name="Path2D U6" type="Path2D" parent="Control2"]
+curve = SubResource("Curve2D_nv2w0")
+
+[node name="PathFollower" parent="Control2/Path2D U6" instance=ExtResource("2_ewujf")]
+position = Vector2(798, 2127)
+rotation = -0.787796
