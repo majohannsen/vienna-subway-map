@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://cp1svnycho8to"]
+
+[ext_resource type="Texture2D" uid="uid://cjy4yvntroibu" path="res://assets/U-Bahn Netz.svg" id="1_ers12"]
+[ext_resource type="Script" path="res://Path2D U3.gd" id="2_mjemr"]
+[ext_resource type="Texture2D" uid="uid://dwqams5ecbxio" path="res://assets/train.svg" id="2_w2aly"]
+
+[sub_resource type="Curve2D" id="Curve2D_x6a4t"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 882, 737, 0, 0, 0, 0, 1213, 1067, 0, 0, 0, 0, 2088, 1069, 0, 0, 0, 0, 2419, 1402, 0, 0, 0, 0, 2419, 1676)
+}
+point_count = 5
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+offset_right = 3840.0
+offset_bottom = 2160.0
+metadata/_edit_lock_ = true
+
+[node name="U-bahnNetz" type="Sprite2D" parent="Control"]
+position = Vector2(1870, 987.5)
+scale = Vector2(2.58288, 2.58288)
+texture = ExtResource("1_ers12")
+metadata/_edit_lock_ = true
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Path2D U3" type="Path2D" parent="Control2"]
+curve = SubResource("Curve2D_x6a4t")
+script = ExtResource("2_mjemr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Control2/Path2D U3"]
+position = Vector2(882, 737)
+rotation = 0.783885
+
+[node name="Train" type="Sprite2D" parent="Control2/Path2D U3/PathFollow2D"]
+scale = Vector2(2.14347, 2.14347)
+texture = ExtResource("2_w2aly")
