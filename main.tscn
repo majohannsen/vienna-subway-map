@@ -1,14 +1,19 @@
 [gd_scene load_steps=5 format=3 uid="uid://cp1svnycho8to"]
 
 [ext_resource type="Texture2D" uid="uid://cjy4yvntroibu" path="res://assets/U-Bahn Netz.svg" id="1_ers12"]
-[ext_resource type="Texture2D" uid="uid://dwqams5ecbxio" path="res://assets/train.svg" id="2_w2aly"]
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="3_3ua2x"]
+[ext_resource type="PackedScene" uid="uid://cnl81e3tyh0fq" path="res://path_follower.tscn" id="2_ewujf"]
 
 [sub_resource type="Curve2D" id="Curve2D_x6a4t"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 882, 737, 0, 0, 0, 0, 1213, 1067, 0, 0, 0, 0, 2088, 1069, 0, 0, 0, 0, 2419, 1402, 0, 0, 0, 0, 2419, 1676)
 }
 point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_ajd41"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 606, 1339, 0, 0, 0, 0, 1882, 1338, 0, 0, 0, 0, 1996, 1225, 0, 0, 0, 0, 1997, 913, 0, 0, 0, 0, 1530, 445, 0, 0, 0, 0, 1530, 229)
+}
+point_count = 6
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,11 +44,11 @@ offset_bottom = 40.0
 [node name="Path2D U3" type="Path2D" parent="Control2"]
 curve = SubResource("Curve2D_x6a4t")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Control2/Path2D U3"]
-position = Vector2(882, 737)
-rotation = 0.783885
-script = ExtResource("3_3ua2x")
+[node name="PathFollow2D" parent="Control2/Path2D U3" instance=ExtResource("2_ewujf")]
 
-[node name="Train" type="Sprite2D" parent="Control2/Path2D U3/PathFollow2D"]
-scale = Vector2(2.14347, 2.14347)
-texture = ExtResource("2_w2aly")
+[node name="Path2D U4" type="Path2D" parent="Control2"]
+curve = SubResource("Curve2D_ajd41")
+
+[node name="PathFollow2D" parent="Control2/Path2D U4" instance=ExtResource("2_ewujf")]
+position = Vector2(606, 1339)
+rotation = -0.000783699

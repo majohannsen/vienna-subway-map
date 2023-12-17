@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnl81e3tyh0fq"]
+
+[ext_resource type="Script" path="res://PathFollow2D.gd" id="1_uyukp"]
+[ext_resource type="Texture2D" uid="uid://dwqams5ecbxio" path="res://assets/train.svg" id="2_4uxo0"]
+
+[node name="PathFollower" type="PathFollow2D"]
+position = Vector2(882, 737)
+rotation = 0.783885
+script = ExtResource("1_uyukp")
+
+[node name="Train" type="Sprite2D" parent="."]
+scale = Vector2(2.14347, 2.14347)
+texture = ExtResource("2_4uxo0")
+
+[node name="_Timer_69160" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
