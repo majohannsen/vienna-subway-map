@@ -91,3 +91,16 @@ curve = SubResource("Curve2D_nv2w0")
 [node name="PathFollower" parent="Control2/Path2D U6" instance=ExtResource("2_ewujf")]
 position = Vector2(798, 2127)
 rotation = -0.787796
+
+[node name="CheckButton" type="CheckButton" parent="."]
+offset_left = 713.0
+offset_top = 336.0
+offset_right = 855.0
+offset_bottom = 393.0
+text = "time"
+
+[connection signal="toggled" from="CheckButton" to="Control2/Path2D U1/PathFollower" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="Control2/Path2D U2/PathFollower" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="Control2/Path2D U3/PathFollower" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="Control2/Path2D U4/PathFollower" method="_on_check_button_toggled"]
+[connection signal="toggled" from="CheckButton" to="Control2/Path2D U6/PathFollower" method="_on_check_button_toggled"]
